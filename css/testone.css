@@ -1,0 +1,766 @@
+/**
+* Montserrat
+*/
+@font-face{
+	font-family: 'Montserrat Thin';
+	src: url('../fonts/montserrat/Montserrat-Thin.otf');
+}
+@font-face{
+	font-family: 'Montserrat Light';
+	src: url('../fonts/montserrat/Montserrat-Light.otf');
+}
+@font-face{
+	src: url('../fonts/montserrat/Montserrat-Medium.otf');
+	font-family: 'Montserrat Medium';
+}
+@font-face{
+	src: url('../fonts/montserrat/Montserrat-SemiBold.otf');
+	font-family: 'Montserrat Semibold';
+}
+@font-face{
+	src: url('../fonts/montserrat/Montserrat-Bold.otf');
+	font-family: 'Montserrat Bold';
+}
+@font-face{
+	src: url('../fonts/montserrat/Montserrat-Black.otf');
+	font-family: 'Montserrat Black';
+}
+@font-face{
+	src: url('../fonts/montserrat/Montserrat-Regular.otf');
+	font-family: 'Montserrat Regular';
+}
+
+:root{
+    --primary: #10499f;
+    --secondary: #FFE56F;
+    --red: #FF3838;
+    --green: #65E4A3;
+}
+
+.relative{ position: relative; }
+.container{ max-width: 1140px; }
+
+.header{ padding: 15px 0 10px; }
+.header.gradient{
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+
+    border-bottom: none;
+    position: absolute;
+    top: 0;
+    left: 0px;
+
+    width: 100%;
+    z-index: 1000;
+}
+.header .logo{ width: 100px; }
+.menu-holder{ position: relative; }
+.menu-holder ul{
+    display: flex;
+    column-gap: 50px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    justify-content: center;
+}
+.menu-holder ul li a{
+    display: block;
+    padding: 8px 0px;
+    text-decoration: none;
+    font-family: 'Montserrat Bold';
+    color: #000;
+    position: relative;
+}
+.menu-holder ul li a:before{
+    content: "";
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+
+    transform-origin: 50% 50%;
+    transform: scaleX(0);
+
+    transition: cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+.menu-holder ul li:hover a:before{ transform: scaleX(1); }
+/* .menu-holder ul li a:hover{ font-family: 'Montserrat '; } */
+.menuic{
+    color: #fff;
+    text-decoration: none;
+
+    position: absolute;
+    right: 15px;
+}
+
+.second-menu{
+    display: inline-block;
+    vertical-align: top;
+
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background-color: #fff;
+    overflow: hidden;
+    z-index: 900;
+
+    display: none;
+}
+.second-menu ul{
+    padding: 0 !important;
+    margin: 0;
+}
+.second-menu li{
+    display: block;
+    text-align: right;
+}
+.second-menu li a{ 
+    color: rgba(0, 0, 0, 1); 
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+.second-menu li a:hover{ color: rgba(0, 0, 0, 0.7); }
+.second-menu li.closer a{
+    background-color: #005caa;
+    color: #fff;
+}
+
+.gradient .menu-holder ul li a{ color: #fff; }
+.menu-holder ul li.active::after {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #005caa;
+
+    bottom: -15px;
+    left: 0px;
+    content: '';
+}
+.header .direct,
+.header .deconnexion{
+    position: absolute;
+    right: 0;
+    top: 0px;
+    font-family: 'Montserrat Bold';
+    color: #fff;
+    display: block;
+
+    padding: 7px 15px;
+
+    background: #b32c6b;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #b32c6b, #fc65ac);
+    background: linear-gradient(to right, #b32c6b, #fc65ac);
+    text-decoration: none;
+    border: 2px solid #b32c6b;
+
+    animation-name: zoom;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+.header .direct:hover{
+    background: #fff;
+    color: #b32c6b;
+}
+.header .direct.solo{ right: 15px; }
+.header .deconnexion{
+    background: #fff;
+    right: 15px;
+    color: #b32c6b;
+    border: 2px solid #b32c6b;
+}
+.header .deconnexion:hover{
+    color: #005caa;
+}
+.header .second-menu .direct{
+    position: relative;
+    text-align: right;
+    right: 0px;
+    border: none;
+}
+
+.slide{
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+.slide img{ width: 100%; height: 100%; object-fit: cover; }
+.cycle-overlay{
+    position: absolute;
+    top: 0px;
+    z-index: 300;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    opacity: 1;
+    left: 0px;
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+70 */
+    background: -moz-linear-gradient(left,  rgba(0,0,0,0.80) 0%, rgba(0,0,0,0) 80%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0.80) 0%,rgba(0,0,0,0) 80%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgba(0,0,0,0.80) 0%,rgba(0,0,0,0) 80%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+}
+.cycle-overlay .container{
+    height: 100%;
+    padding: 0;
+}
+.cycle-overlay .container .infos{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 15px 100px;
+}
+.cycle-overlay .container .infos h3{
+    font-family: 'Montserrat Black';
+    text-transform: uppercase;
+    width: 20%;
+    font-size: 3.9em;
+    color: #fff;
+    margin-left: 0px;
+    margin-bottom: 0;
+}
+.cycle-overlay .container .infos > p{
+    width: 50%;
+}
+.cycle-overlay .container .infos p.miniinfos{
+    font-size: 1.4em;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.cycle-overlay .container .infos p.desc{
+    color: #b9b9b9;
+    font-family: 'Montserrat Light';
+}
+
+.slide .cycle-overlay .category p{
+    background-color: #b32c6b;
+    display: inline-block;
+    padding: 6px 10px;
+    color: #fff;
+}
+.slide .cycle-overlay .category p span{ color: rgba(255, 255, 255, 0.5); }
+
+.slide .overlay{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100%;
+    z-index: 305;
+}
+.slide .overlay .container{
+    position: relative;
+    height: 100%;
+}
+.cycle-pager{
+    width: auto;
+    display: inline-block;
+    bottom: auto;
+    top: 170px;
+
+    right: 30px;
+}
+.cycle-pager span,
+.cycle-pager span.cycle-page-active{ color: transparent !important; }
+.cycle-pager span{
+    width: 7px;
+    height: 25px;
+    margin-bottom: 7px;
+    border: 1px solid #fff;
+    display: block;
+}
+.cycle-pager span.cycle-page-active{ background: #fff; }
+
+.slide .socials{
+    position: absolute;
+    top: 320px;
+    right: 15px;
+
+    margin: 0px;
+    padding: 0px;
+
+    list-style: none;
+}
+.slide .socials li a{
+    font-size: 2.2em;
+    color: #fff;
+    text-decoration: none;
+}
+.slide .socials li a:hover{ color: #b32c6b; }
+
+
+.section{ margin: 45px 0 0; }
+.section .section-title{
+    font-style: italic;
+    text-transform: uppercase;
+
+    font-family: 'Montserrat Light';
+    margin-bottom: 30px;
+    padding-left: 45px;
+    font-size: 1.8em;
+}
+.section .section-title strong{ font-family: 'Montserrat Bold'; }
+.section .section-content{ position: relative; }
+.programs{
+    display: flex;
+    column-gap: 30px;
+}
+.program{
+    width: 30%;
+    height: 400px;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.program .head{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.95) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.95) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+    padding: 20px 20px 10px;
+}
+.icone,
+.icone + p{
+    display: inline-block;
+    vertical-align: middle;
+}
+.icone + p{ 
+    margin-bottom: 0;
+    font-family: 'Montserrat Light';
+    color: #fff;
+    font-size: 0.7em;
+    padding-left: 5px;
+}
+.icone .circle,
+.icone .circletwo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.icone{
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+.icone .circle{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.icone .circletwo{
+    width: 80%;
+    height: 80%;
+
+    top: 50%;
+    left: 50%;
+
+    margin-top: -40%;
+    margin-left: -40%;
+
+    border-radius: 100%;
+
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-size: 1.7em;
+    padding-top: 3px;
+    padding-left: 5px;
+}
+.program .foot{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+99&0+0,0.65+38 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 38%, rgba(0,0,0,0.65) 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 38%,rgba(0,0,0,0.65) 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 38%,rgba(0,0,0,0.65) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+    padding: 15px;
+    position: absolute;
+    bottom: -83px;
+
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.program:hover .foot{ bottom: 0; }
+.program .foot a{ text-decoration: none; }
+.program .foot .category,
+.program .foot h3,
+.program .foot .desc{
+    color: #fff;
+}
+.program .foot .category{
+    font-size: 0.7em;
+    margin: 0px 0 5px;
+}
+.program .foot h3{
+    font-family: 'Montserrat Black';
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 0px 0 7px;
+}
+.program .foot .desc{
+    font-family: 'Montserrat Light';
+    font-size: 0.7em;
+    opacity: 0;
+    text-align: justify;
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.program:hover .foot .desc{ opacity: 1 }
+
+.onlifetv .controls{
+    background-color: #005caa;
+    color: #fff;
+    display: inline-block;
+    padding: 0px 15px;
+    font-size: 1.8em;
+    text-decoration: none;
+    position: absolute;
+    right: -25px;
+    z-index: 100;
+}
+.onlifetv .controls:hover{
+    background-color: #fff;
+    color: #005caa;
+}
+.onlifetv .controls.top{
+    top: 150px;
+    transform: rotate(180deg);
+}
+.onlifetv .controls.bottom{
+    top: 200px;
+}
+
+.section.leaders{
+    background-color: var(--primary);
+    height: 600px;
+    position: relative;
+}
+.section.leaders .overlay{
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+.section.leaders .relative{
+    width: 100%;
+    height: 100%;
+}
+.section.leaders .relative .container,
+.section.leaders .relative .container > .row{
+    height: 100%;
+}
+.section.leaders .texts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 30px;
+}
+.section.leaders .title{
+    color: var(--secondary);
+    text-transform: uppercase;
+    font-family: 'Medula One', sans-serif;
+    font-size: 5.5em;
+    line-height: 0.8em;
+}
+.section.leaders .title + p{
+    font-family: "Inter", sans-serif;
+    font-size: 1.7em;
+    color: #fff;
+    font-weight: 100;
+}
+.section.leaders span{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-weight: 400;
+    padding: 16px 56px;
+    border-radius: 56px;
+
+    display: inline-block;
+    width: 294px;
+    font-size: 1.2em;
+}
+.section.leaders:hover span{
+    background-color: #fff;
+    color: var(--primary);
+}
+.section.leaders .squares{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.section.leaders .square{
+    width: 400px;
+    height: 400px;
+
+    position: relative;
+}
+.section.leaders .square:before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+}
+.section.leaders .square img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100%;
+
+    transform: translate(0px, 0px);
+    transition: all cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+}
+.section.leaders:hover .square img{
+    transform: translate(-30px, -30px);
+}
+
+/**
+* Nos émissions
+*/
+.ourbroadcasts .allgrid{
+    width: 100%;
+    height: 600px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.allgrid .cols{
+    height: 100%;
+    flex: 3;
+}
+
+.allgrid .cols.one{ padding-right: 5px; }
+.allgrid .cols.two,
+.allgrid .cols.three{
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+}
+.allgrid .cols.two .cols.twoone{ padding-bottom: 5px; }
+.allgrid .cols.two .cols.twotwo{ padding-top: 5px; }
+
+.allgrid .cols.three{ padding: 0 0 0 5px; }
+.allgrid .cols.three .cols.threeone{ padding-bottom: 5px; }
+.allgrid .cols.three .cols.threetwo{ padding-top: 5px; padding-bottom: 5px; }
+.allgrid .cols.three .cols.threethree{ padding-top: 5px; }
+
+.allgrid .cols .inner{
+    background-color: #aaa;
+    width: 100%;
+    height: 100%;
+
+    -webkit-background-size: cover;
+    background-size: cover;
+
+    position: relative;
+    overflow: hidden;
+}
+.allgrid .cols .inner .overlay{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.allgrid .cols .inner:hover .overlay{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.allgrid .cols .inner .image{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    -webkit-transform: scale(1.0, 1.0) rotate(0deg);
+    -ms-transform: scale(1.0, 1.0) rotate(0deg);
+    -o-transform: scale(1.0, 1.0) rotate(0deg);
+    transform: scale(1.0, 1.0) rotate(0deg);
+
+    -webkit-background-size: cover;
+    background-size: cover;
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.allgrid .cols .inner:hover .image{
+    -webkit-transform: scale(1.3, 1.3) rotate(10deg);
+    -ms-transform: scale(1.3, 1.3) rotate(10deg);
+    -o-transform: scale(1.3, 1.3) rotate(10deg);
+    transform: scale(1.3, 1.3) rotate(10deg);
+}
+.allgrid .cols .inner .legend{
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+
+    max-width: 250px;
+    z-index: 5;
+}
+.allgrid .cols.two .inner .legend{ max-width: 90px; }
+.allgrid .cols.three .inner .legend{ max-width: 100px; }
+.ourbroadcasts .options{
+    text-align: right;
+    padding-top: 10px;
+    margin-bottom: 30px;
+}
+.ourbroadcasts .options a{
+    text-decoration: none;
+    font-family: 'Montserrat Light';
+    font-style: italic;
+    color: #000;
+}
+.ourbroadcasts .options a:hover{ color: #005ba8; }
+.ourbroadcasts .options .icon .ic{
+    background-color: #000;
+
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 3px;
+    padding-left: 1px;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    width: 25px;
+    height: 25px;
+
+    color: #fff;
+}
+.ourbroadcasts .options .icon:hover .ic{ background-color: #005ba8; }
+
+/**
+* Footer
+*/
+footer{
+    background-color: #0d0d0d;
+    padding: 40px 0 70px;
+}
+footer .logo{
+    filter: grayscale(1);
+    width: 120px;
+    opacity: 0.70;
+}
+
+footer .section-title{
+    font-family: 'Montserrat Black';
+    font-size: 1.1em;
+    color: #fff;
+}
+footer .links,
+footer .socialize{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+footer .links li,
+footer .links li a{
+    font-family: 'Montserrat Thin';
+    color: #fff;
+
+    text-decoration: none;
+}
+footer .appstore, 
+footer .playstore{
+    display: inline-block;
+    vertical-align: middle;
+
+    width: 85px;
+}
+footer .followus h3{
+    margin-top: 30px;
+    font-family: 'Montserrat Light';
+    color: #fff;
+    font-size: 1.3em;
+}
+footer .socialize li{
+    display: inline-block;
+    vertical-align: middle;
+}
+footer .socialize li a{
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 50%;
+
+    text-align: center;
+    font-size: 1.3em;
+    padding-top: 3px;
+
+    color: #000;
+    text-decoration: none;
+}
+footer .socialize li.twitter:hover a{
+    background-color: #00acee;
+    color: #fff;
+}
+footer .socialize li.facebook:hover a{
+    background-color: #0070aa;
+    color: #fff;
+}
+footer .socialize li.instagram:hover a{
+    background-color: #f106e3;
+    color: #fff;
+}
+footer .socialize li.youtube:hover a{
+    background-color: #ba1515;
+    color: #fff;
+}
+
+
+
+.btn-outline{ border: 2px solid #fff; }
+.btn-outline:hover{
+    color: var(--primary);
+    background-color: #fff;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1.0);
+    }
+
+    100% {
+        transform: scale(1.4);
+    }
+}

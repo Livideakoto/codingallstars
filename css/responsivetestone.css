@@ -1,0 +1,250 @@
+@media screen and (max-width: 1140px){
+	.allgrid .cols .inner .legend{
+		max-width: 170px;
+	}
+
+    .onlifetv .controllers{
+        display: flex;
+        justify-content: center;
+        column-gap: 15px;
+        margin-top: 30px;
+    }
+    .onlifetv .controls{
+        position: relative;
+        right: auto;
+        top: 0 !important;
+
+        width: 100px;
+    }
+    .onlifetv .controls:hover{
+        background-color: #fff;
+        color: #005caa;
+    }
+}
+
+@media screen and (max-width: 768px){
+	/* Styles for Tablets & Phones */
+	header ul{ margin-bottom: 0 !important; }
+	
+	.cycle-overlay .container .infos h3{
+		width: 100%;
+		font-size: 3.0em;
+		text-align: center;
+	}
+
+	.header .logo{ width: 70px; }
+	.header .main-menu{ text-align: right; }
+	.header .menuic{ 
+		font-size: 1.7em;
+		padding: 0;
+		margin-top: 0px;
+	}
+	.header .menuic a{
+		padding: 0;
+	}
+
+	.slide{ height: auto; }
+	.slide img{
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.cycle-overlay{
+	    position: absolute;
+	    top: 0px;
+	    z-index: 300;
+	    height: 100%;
+	    width: 100%;
+	    padding: 0;
+	    opacity: 1;
+	    left: 0px;
+
+	    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+70 */
+	    background: -moz-linear-gradient(left,  rgba(0,0,0,0.80) 0%, rgba(0,0,0,0) 95%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+	    background: -webkit-linear-gradient(left,  rgba(0,0,0,0.80) 0%,rgba(0,0,0,0) 95%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	    background: linear-gradient(to right,  rgba(0,0,0,0.80) 0%,rgba(0,0,0,0) 95%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+	}
+	.cycle-overlay .container .infos{ padding-bottom: 50px; }
+	.cycle-overlay .container .infos h3{
+		font-size: 1.2em;
+		text-align: left;
+	}
+	.cycle-overlay .container .infos > p{ width: 90%; }
+	.cycle-overlay .container .infos p.miniinfos{ font-size: 1.2em; }
+	.cycle-overlay .container .infos p.desc{ font-size: 1.0em; }
+
+	.cycle-pager{
+	    width: 100%;
+	    display: inline-block;
+	    bottom: -20px;
+	    top: auto;
+	    right: 0;
+
+	    text-align: left;
+	    padding-left: 15px;
+	}
+	.cycle-pager span,
+	.cycle-pager span.cycle-page-active{ color: transparent !important; }
+	.cycle-pager span{
+	    width: 20px;
+	    height: 20px;
+	    margin-right: 7px;
+	    border-radius: 100%;
+	    border: 1px solid #fff;
+	    display: inline-block;
+	}
+
+	.slide .socials{
+		width: 100%;
+		top: auto;
+		bottom: 0px;
+		right: 0;
+
+		padding: 0 15px;
+		text-align: right;
+	}
+	.slide .socials li{
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+    .programs{ flex-wrap: wrap; row-gap: 30px; }
+    .program{
+        width: calc(50% - 15px);
+    }
+
+    .section.leaders .squares{ display: none; }
+    .section.leaders{ height: auto; padding: 60px 0; }
+    .section.leaders span{
+        display: block;
+        margin: 0 auto;
+    }
+
+	/* .onlifetv .controls{ right: -15px; } */
+	.ourbroadcasts .allgrid{ height: 420px; }
+	.allgrid .cols .inner .legend{
+		max-width: 120px;
+	}
+	.allgrid .cols.two .inner .legend{ max-width: 70px; }
+	.allgrid .cols.three .inner .legend{ max-width: 70px; }
+}
+
+@media screen and (max-width: 600px){
+	.section .section-title{
+	    font-style: italic;
+	    text-transform: uppercase;
+
+	    font-family: 'Montserrat Light';
+	    margin-bottom: 30px;
+	    padding-left: 45px;
+	    font-size: 1.2em;
+	    text-align: right;
+	}
+	
+	.slide{ height: auto; }
+	.slide img{
+		height: 400px;
+		object-fit: cover;
+		object-position: center;
+	}
+
+    .programs{
+        display: flex;
+        flex-direction: column;
+        column-gap: 0;
+        row-gap: 30px;
+    }
+    .program{
+        width: 100%;
+        height: 300px;
+        background-size: cover;
+    
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+	.ourbroadcasts .allgrid{
+	    height: auto;
+	    display: block;
+	}
+	.allgrid .cols{ height: auto; }
+	.allgrid .cols.one{
+		padding: 0px 0px 10px;
+		height: 300px;
+	}
+	.allgrid .cols.two{ margin-bottom: 10px; }
+	.allgrid .cols.two,
+	.allgrid .cols.three{
+		display: block;
+		height: auto;
+		padding: 0;
+	}
+	.allgrid .cols.two .cols{ height: 300px; }
+	.allgrid .cols.three .cols{ height: 300px; }
+
+	.allgrid .cols .inner .legend{ max-width: 190px; }
+	.allgrid .cols.two .inner .legend{ max-width: 100px; }
+	.allgrid .cols.three .inner .legend{ max-width: 100px; }
+	
+	.extrasinner{ display: block; }
+	.extrasinner .extra{
+		padding: 0 15px;
+		margin-bottom: 15px;
+	}
+	.extrasinner .extra{ 
+	    height: 300px;
+	    flex: 3;
+	}
+	
+	.encarttwo,
+	.encarttwo .relative{ height: auto; padding: 15px 0; }
+	.encarttwo .bgstuffs .friseone,
+	.encarttwo .bgstuffs .frisetwo{
+		display: none;
+	}
+	.encarttwo .phones{ display: none; }
+	.encarttwo .textandactions{
+		width: 100%;
+		left: 0px;
+		flex-direction: column;
+		height: auto;
+	}
+	.encarttwo .texts{ width: 100%; margin-bottom: 15px; }
+	.encarttwo .texts h3{ text-align: center; }
+	.encarttwo .actions{
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+
+		width: 100%;
+	}
+	.encarttwo .actions img{ 
+		height: 35px;
+		width: auto;
+		margin-left: 15px;
+	}
+	.encarttwo .actions .playstore{ height: 38px; margin-left: 0px; }
+	.encarttwo .logotype{ display: none; }
+	
+	footer .logo{ margin-bottom: 40px; }
+	footer .links{ margin-bottom: 20px; }
+	
+	.lachaine .section.left .mainside{ padding-left: 15px; }
+	.lachaine .section.left .section-content, 
+	.lachaine .section.right .section-content{
+		width: 100%;
+	}
+	.lachaine .section .picture{ width: 100%; }
+	.lachaine .section.right .mainside{ padding-right: 15px; }
+
+	.login{
+		flex-direction: column;
+		width: 100%;
+		height: auto;
+	}
+	.login .left,
+	.login .right{ width: 100%; padding: 30px; }
+	.login .right .form{ width: 100%; }
+}

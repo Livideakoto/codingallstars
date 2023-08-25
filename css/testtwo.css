@@ -1,0 +1,373 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+:root{
+    --primary: #10499f;
+    --secondary: #FFE56F;
+    --red: #FF3838;
+    --green: #65E4A3;
+}
+
+body{ 
+    font-family: "Open Sans", sans-serif; 
+}
+header{ border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+.container{
+    max-width: 1140px;
+    display: block;
+    margin: 0 auto;
+}
+header h3{
+    font-family: "Open Sans", sans-serif;
+    font-size: 2.0em;
+    font-weight: 700;
+}
+header .container > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header ul{ display: flex; }
+header ul li a{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    
+    padding: 20px 15px;
+    color: #111;
+    font-weight: 300;
+    position: relative;
+    overflow: hidden;
+}
+header ul li:hover a{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+header ul li a::after{
+    content: '';
+    width: 10px;
+    height: 10px;
+    
+    background-color: #666;
+    
+    position: absolute;
+    bottom: -5px;
+    
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+header ul li:hover a::after{ opacity: 1; }
+
+
+main{ padding: 30px 0; }
+main section{ margin-bottom: 30px; }
+main section > .title{
+    font-weight: 600;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+main section > div{
+    display: flex;
+    width: 100%;
+    min-height: 150px;
+    height: auto;
+    
+    column-gap: 15px;
+}
+main section > div .demo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+main section > div .demo .label{
+    color: #666;
+}
+main section > div .demo .playground{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main section#customcursor .playground{
+    background-color: var(--primary);
+    margin-top: 10px;
+    height: 200px;
+
+    cursor: url('../img/pointer.png?v=0.1'), auto;
+}
+
+/**
+* Button
+*/
+.btn{
+    display: block;
+    color: #fff;
+    padding: 15px 20px;
+    
+    text-decoration: none;
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    
+    font-size: 0.9em;
+    position: relative;
+}
+.btn:hover{ color: var(--primary); }
+.btn *{
+    position: relative;
+    z-index: 1;
+}
+.btn::after{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+    width: 100%;
+    height: 100%;
+    
+    z-index: 0;
+    background-color: #fff;
+    
+    transform: translateX(-105%);
+    transition: cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+.btn:hover::after{ transform: translateX(0%); }
+
+
+/**
+* Toggle
+*/
+.toggle input[type="checkbox"]{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+.toggle label{
+    width: 100px;
+    height: 30px;
+    display:block;
+    background-color: var(--primary);
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 0 20px #10499f50;
+}
+.toggle label::after{
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-color: #e8f5f7;
+    position: absolute;
+    border-radius: 70px;
+    top: 0px;
+    left: 5px;
+    
+    transition: 0.5s;
+}
+.toggle input:checked + label:after{
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+.toggle input:checked + label{ background-color: var(--red); }
+
+/**
+* Range
+* Slider
+*/
+.rangeslider input{
+    appearance :none;
+    background: none;
+    cursor: pointer;
+    
+    --c: var(--primary); /* active color */
+    --g: 8px; /* the gap */
+    --l: 5px; /* line thickness*/
+    --s: 30px; /* thumb size*/
+    
+    width: 300px;
+    height: var(--s); 
+    -webkit-appearance :none;
+    -moz-appearance :none;
+    appearance :none;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+/* chromium */
+.rangeslider input[type="range" i]::-webkit-slider-thumb{
+    height: var(--s);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 0 var(--l) inset var(--c);
+    
+    border-image-source: linear-gradient(90deg,var(--c) 50%,#ababab 0); 
+    border-image-slice: 1;
+    border-image-width: 0 100vw;
+    border-image-outset: 0 calc(100vw + var(--g));
+    
+    clip-path: polygon(
+    0     calc(50% + var(--l)/2),
+    -100vw calc(50% + var(--l)/2),
+    -100vw calc(50% - var(--l)/2),
+    0     calc(50% - var(--l)/2),
+    0 0,100% 0,
+    100%  calc(50% - var(--l)/2),
+    100vw calc(50% - var(--l)/2),
+    100vw calc(50% + var(--l)/2),
+    100%  calc(50% + var(--l)/2),
+    100% 100%,0 100%
+    );
+    
+    -webkit-appearance: none;
+    appearance: none;
+}
+/* Firefox */
+.rangeslider input[type="range"]::-moz-range-thumb{
+    height: var(--s);
+    width: var(--s);
+    background: none;
+    border-radius: 50%;
+    box-shadow: 0 0 0 var(--l) inset var(--c);
+    border-image: linear-gradient(90deg,var(--c) 50%,#ababab 0) 1/0 100vw/0 calc(100vw + var(--g));
+    
+    clip-path: polygon(
+    0     calc(50% + var(--l)/2),
+    -100vw calc(50% + var(--l)/2),
+    -100vw calc(50% - var(--l)/2),
+    0     calc(50% - var(--l)/2),
+    0 0,100% 0,
+    100%  calc(50% - var(--l)/2),
+    100vw calc(50% - var(--l)/2),
+    100vw calc(50% + var(--l)/2),
+    100%  calc(50% + var(--l)/2),
+    100% 100%,0 100%
+    );
+    
+    -moz-appearance: none;
+    appearance: none;    
+}
+
+/**
+* 3D Cube
+*/
+.scene{
+    width: 200px;
+    height: 200px;
+    perspective: 500px;
+    margin: 100px;
+}
+.cube{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotate3d(1, 1, 0, 45deg);
+    animation: rotate 5s linear infinite;
+}
+.face{
+    width: 200px;
+    height: 200px;
+    background: var(--red);
+    border: 2px solid var(--red);
+    position: absolute;
+    opacity: 0.5;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+}
+.front{ transform: translateZ(100px); }
+.back{ transform: translateZ(-100px) rotateY(180deg); }
+.left{ transform: translateX(-100px) rotateY(-90deg); }
+.right{ transform: translateX(100px) rotateY(90deg); }
+.top{ transform: translateY(-100px) rotateX(90deg); }
+.bottom{ transform: translateY(100px) rotateX(-90deg); }
+
+@keyframes rotate {
+    from { transform: rotate3d(0, 0, 0, 0); }
+    to { transform: rotate3d(1, 1, 0, 360deg); }
+}
+
+/* For accessibilty purpose */
+@media (prefers-reduced-motion: reduce) {
+    .cube {
+        animation: none;
+        transform: rotate3d(1, 1, 0, 45deg);
+    }
+}
+
+@media screen and (max-width: 1140px){
+    header .container > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 15px;
+        padding-top: 15px;
+    }
+
+    main{ padding: 30px; }
+    main section > div{
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+    }
+    main section > div .demo{ width: calc(100% - 30px); }
+}
