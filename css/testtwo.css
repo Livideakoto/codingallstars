@@ -55,9 +55,8 @@ table {
     --green: #65E4A3;
 }
 
-body{ 
-    font-family: "Open Sans", sans-serif; 
-}
+html{ scroll-behavior: smooth; }
+body{ font-family: "Open Sans", sans-serif; }
 header{ border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 .container{
     max-width: 1140px;
